@@ -32,7 +32,7 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 
 const addExclamation = (arr) => {
   let newArr = [];
-  arr.forEach(item => newArr.push(item +'!'));
+  arr.forEach(item => newArr.push(item + '!'));
   return newArr;
   // Solution code here...
 };
@@ -77,10 +77,10 @@ CHALLENGE 5
 Write a function named addValues that takes in an array and a value and pushes the value into the array. This function does not need a return statement.
 
 Then, write a function named addNumbers that takes in four arguments:
-  - A number to be added to an array
-  - An array into which the number should be added
-  - The number of times the number should be added
-  - A callback function to use to add the numbers to the array (Hint: you already defined it)
+  - A number to be added to an array (num)
+  - An array into which the number should be added (arr) arr[num, num, num]
+  - The number of times the number should be added (times) nums * times -> into []
+  - A callback function to use to add the numbers to the array (Hint: you already defined it) defined as callback(arr, num) * 5
 
 Within the addNumbers function, invoke the callback function as many times as necessary, based on the third argument of the addNumbers function.
 
@@ -88,18 +88,22 @@ Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
 const addValues = (arr, value) => {
-  // Solution code here...
+  arr.push(value);
 };
 
+//  addNumbers(8, [], 5, addValues)           .toStrictEqual([8, 8, 8, 8, 8]);
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  for (let i = 0; i < times; i++) {
+    callback(arr, num);
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
 
 CHALLENGE 6
 
-Write a function named createList that takes in an array of the current store intentory.
+Write a function named createList that takes in an array of the current store inventory.
 
 The inventory is formatted like this:
 [
@@ -112,9 +116,17 @@ The inventory is formatted like this:
 
 This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
+//  expect(createList(inventory)).toStrictEqual(['apples', 'pears', 'bananas']);
 
 const createList = (availableItems) => {
   // Solution code here...
+  let finalList = [];
+  availableItems.forEach((item) => {
+    if (item.available) {
+      finalList.push(item.name);
+    }
+  });
+  return finalList;
 };
 
 /* ------------------------------------------------------------------------------------------------
