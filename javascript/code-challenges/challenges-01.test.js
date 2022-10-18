@@ -1,5 +1,7 @@
 'use strict';
 
+const { text } = require("cheerio/lib/api/manipulation");
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
 
@@ -44,7 +46,9 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 ------------------------------------------------------------------------------------------------ */
 
 const allUpperCase = (arr) => {
-  // Solution code here...
+  let newArr = [];
+  arr.forEach(item => newArr.push(item.toUpperCase()));
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -58,11 +62,13 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-  // Solution code here...
+  word.forEach(item => (item.toUppercase() + '!'));
 };
 
 const speaker = (words, callback) => {
-  // Solution code here...
+  let newArr = [];
+  words.forEach(item => newArr.push(item.greeting(words)));
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
