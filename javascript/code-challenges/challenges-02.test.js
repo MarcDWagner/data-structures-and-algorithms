@@ -93,6 +93,9 @@ For example: charCode(['h','i']) returns [104, 105].
 
 const charCode = (arr) => {
   // Solution code here...
+  return arr.map((letter) =>{
+    return letter.charCodeAt();
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -120,6 +123,7 @@ Note: Because this function is expecting the array of abilities, it will be invo
 extractAbilities(snorlaxAbilities.abilities)
 ------------------------------------------------------------------------------------------------ */
 
+// snorlaxAbilities.abilities[0].ability.name
 const snorlaxAbilities = {
   abilities: [
     {
@@ -153,6 +157,9 @@ const snorlaxAbilities = {
 
 const extractAbilities = (arr) => {
   // Solution code here...
+  return arr.map(()=> {
+    return element.ability.name;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -264,7 +271,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return an array containing the character code for each letter', () => {
     expect(charCode(['C', 'o', 'd', 'e', '3', '0', '1'])).toStrictEqual([67, 111, 100, 101, 51, 48, 49]);
     expect(charCode(['C', 'o', 'd', 'e', '3', '0', '1']).length).toStrictEqual(7);
