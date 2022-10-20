@@ -23,6 +23,9 @@ function lower(str) {
 
 const updateAnimal = (arr, callback) => {
   // Solution code here...
+  let newArr = [];
+  arr.forEach(item => newArr.push(callback(item)));
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -48,7 +51,11 @@ HINT: Beware... JS default is "Lexical" ordering.
 
 const sortNumbers = (arr) => {
   // Solution code here...
+  arr.sort((a,b) => {
+    return a-b;
+  });
 };
+sortNumbers;
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
