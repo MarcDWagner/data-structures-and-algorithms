@@ -200,9 +200,27 @@ const meetings = [
   new Meeting('Monday', '0900', '0945'),
   new Meeting('Friday', '1200', '1345'),
 ];
+// Make it easier to read:
+// const meetings = [
+//   {dayOfWeek: 'Monday', start: '0900', end: '1000'},
+//   {dayOfWeek: 'Wednesday', start: '1300', end: '1500'},
+//   {dayOfWeek: 'Tuesday', start: '1145', end: '1315'},
+//   {dayOfWeek: 'Wednesday', start: '0930', end: '1000'},
+//   {dayOfWeek: 'Monday', start: '0900', end: '0945'},
+//   {dayOfWeek: 'Friday', start: '1200', end: '1345'},
+// ]
 
 const sortMeetingsByDay = (arr) => {
   // Solution code here...
+  // set a key(I am telling it what the order of days is, system won't know Monday - Friday):
+  let daysOfWeek = {
+    Monday: 0,
+    Tuesday: 1,
+    Wednesday: 2,
+    Thursday: 3,
+    Friday: 4,
+  };
+  return arr.sort((a,b) => daysOfWeek[a.dayOfWeek] - daysOfWeek[b.dayOfWeek]);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -350,7 +368,7 @@ xdescribe('Testing challenge 11', () => {
   });
 });
 
-xdescribe('Testing challenge 12', () => {
+describe('Testing challenge 12', () => {
   test('It should sort meetings by the day on which they happen', () => {
     const sortedMeetings = sortMeetingsByDay(meetings);
     expect(sortedMeetings.slice(0, 2)).toEqual(expect.arrayContaining([new Meeting('Monday', '0900', '0945'), new Meeting('Monday', '0900', '1000')]));
