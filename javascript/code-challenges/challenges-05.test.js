@@ -22,11 +22,11 @@ Write a function named addValues that, given an array of numbers as input, uses 
 
 ------------------------------------------------------------------------------------------------ */
 
-const addValues = (arr) => {
-  // Solution code here...
-  arr.reduce((previousValue, value, index) => previousValue + value;
-  return previousValue;
-},0):
+// const addValues = (arr) => {
+//   // Solution code here...
+//   arr.reduce((previousValue, value, index) => previousValue + value;
+//   return previousValue;
+// },0):
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -113,9 +113,14 @@ let starWarsData = [{
   gender: 'female'
 }];
 
-const returnNames = (arr) => {
-  // Solution code here...
-};
+// const returnNames = (arr) => {
+//   // Solution code here...
+//   let splitArr = arr.split('name');
+//   let namesArr = splitArr.reduce((previousValue, currentName) =>{
+//     return previousValue + currentName;
+//   }, '');
+//   return namesArr;
+// };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -127,6 +132,12 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 
 const reversedString = (str) => {
   // Solution code here...
+  let splitStrArr = str.split('');
+  let reversedStr = splitStrArr.reduce ((previousValue, currentLetter) => {
+    return currentLetter + previousValue;
+  }, '');
+
+  return reversedStr;
 };
 
 /* ------------------------------------------------------------------------------------------------
