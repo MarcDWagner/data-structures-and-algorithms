@@ -44,9 +44,9 @@ Write a function named addPurchases that, given an array of objects as input, us
 
 const addPurchases = (arr) => {
   // Solution code here...
-  return arr.map(price => price.purchasePrice).reduce((accumulator, value)=> {
+  return arr.map(price => price.purchasePrice).reduce((accumulator, value) => {
     return accumulator + value;
-  },0);
+  }, 0);
 
 };
 
@@ -60,6 +60,9 @@ Note: You may not use the array's built-in length property.
 
 const countNumberOfElements = (arr) => {
   // Solution code here...
+  return arr.reduce((a, b) => {
+    return a + 1;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -119,14 +122,13 @@ let starWarsData = [{
   gender: 'female'
 }];
 
-// const returnNames = (arr) => {
-//   // Solution code here...
-//   let splitArr = arr.split('name');
-//   let namesArr = splitArr.reduce((previousValue, currentName) =>{
-//     return previousValue + currentName;
-//   }, '');
-//   return namesArr;
-// };
+const returnNames = (arr) => {
+  //   // Solution code here...
+  return arr.reduce((accumulator, value) => {
+    accumulator.push(value.name);
+    return accumulator;
+  },[]);
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -197,6 +199,9 @@ const characters = [
 
 const countNumberOfChildren = (arr) => {
   // Solution code here...
+  return arr.map(child => child.children).reduce((a,b) => {
+    return a + 1;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
