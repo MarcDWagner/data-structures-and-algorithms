@@ -13,6 +13,7 @@ You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = people => {
   // Solution code here...
+  return people.map(person => person.firstName + ' ' + person.lastName);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -22,11 +23,12 @@ Write a function named addValues that, given an array of numbers as input, uses 
 
 ------------------------------------------------------------------------------------------------ */
 
-// const addValues = (arr) => {
-//   // Solution code here...
-//   arr.reduce((previousValue, value, index) => previousValue + value;
-//   return previousValue;
-// },0):
+const addValues = (arr) => {
+  // Solution code here...
+  return arr.reduce((accumulator, value) => {
+    return accumulator + value;
+  }, 0);
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -42,6 +44,10 @@ Write a function named addPurchases that, given an array of objects as input, us
 
 const addPurchases = (arr) => {
   // Solution code here...
+  return arr.map(price => price.purchasePrice).reduce((accumulator, value) => {
+    return accumulator + value;
+  }, 0);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -54,6 +60,9 @@ Note: You may not use the array's built-in length property.
 
 const countNumberOfElements = (arr) => {
   // Solution code here...
+  return arr.reduce((a, b) => {
+    return a + 1;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -113,14 +122,13 @@ let starWarsData = [{
   gender: 'female'
 }];
 
-// const returnNames = (arr) => {
-//   // Solution code here...
-//   let splitArr = arr.split('name');
-//   let namesArr = splitArr.reduce((previousValue, currentName) =>{
-//     return previousValue + currentName;
-//   }, '');
-//   return namesArr;
-// };
+const returnNames = (arr) => {
+  //   // Solution code here...
+  return arr.reduce((accumulator, value) => {
+    accumulator.push(value.name);
+    return accumulator;
+  },[]);
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -133,7 +141,7 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 const reversedString = (str) => {
   // Solution code here...
   let splitStrArr = str.split('');
-  let reversedStr = splitStrArr.reduce ((previousValue, currentLetter) => {
+  let reversedStr = splitStrArr.reduce((previousValue, currentLetter) => {
     return currentLetter + previousValue;
   }, '');
 
@@ -191,6 +199,9 @@ const characters = [
 
 const countNumberOfChildren = (arr) => {
   // Solution code here...
+  return arr.map(child => child.children).reduce((a,b) => {
+    return a + 1;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------

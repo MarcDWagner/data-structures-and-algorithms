@@ -121,8 +121,8 @@ const characters = [
 const getHouses = (arr) => {
   let houses = [];
   // Solution code here...
-  Object.values(arr).forEach(house =>{
-    houses.push(house);
+  arr.forEach(person => {
+    houses.push(person.house);
   });
   return houses;
 };
@@ -131,6 +131,11 @@ const getHouses = (arr) => {
 CHALLENGE 6
 
 Write a function named hasChildrenValues that uses Object.values to determine if any given character in the data set has children.
+
+// How to break it down:
+// Object.values - arr of [value, value, value]
+// input: arr - [{obj}, {obj}, {obj}] & character name
+// output: boolean - conditional -
 
 This function should take in an array of data and a character name and return a Boolean.
 
@@ -141,7 +146,19 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
-
+  // first obj.keys = [name, spouse, children, house]
+  // second obj.keys = [Jon, null, [], house]
+  let numOfChildren = 0;
+  arr.forEach(person => {
+    if(person.name === character) {
+      Object.keys(person).forEach((key, idx) => {
+        if(key === 'children') {
+          numOfChildren = Object.values(person)[idx].length;
+        }
+      });
+    }
+  });
+  return numOfChildren ? true : false;
 };
 
 /* ------------------------------------------------------------------------------------------------

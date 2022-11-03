@@ -6,14 +6,14 @@ CHALLENGE 1 - Review
 Write a function called addTwo that takes in an array and adds two to every value using a for loop. Place the new value in a new array. Return the new array.
 ------------------------------------------------------------------------------------------------ */
 
-// const addTwo = (arr) => {
-//   // Solution code here...
-//   let newArr = [];
-//   for (let i = 0; i < arr.length; i++) {
-//     newArr.push(arr + 2);
-//   }
-//   return newArr;
-// };
+const addTwo = (arr) => {
+  // Solution code here...
+  let newArr = [];
+  for (let item of arr) {
+    newArr.push(item + 2);
+  }
+  return newArr;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -24,12 +24,12 @@ For example, typeNum([1, 'bob' ,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const typeNum = (arr) => {
-  arr.filter((num) => {
-    return (Number(num));
+  return arr.filter(num => {
+    if (typeof (num) === 'number') {
+      return num;
+    }
   });
 };
-typeNum();
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -38,12 +38,10 @@ Write a function named containsAnd that, given an array of strings as input, use
 For example, containsAnd(['panda', 'ran', 'and']) returns ['panda', 'and'].
 ------------------------------------------------------------------------------------------------ */
 
-// const containsAnd = (arr) => {
-//  arr.filter((arr, query) => {
-//   return arr.filter(and);
-//   // Solution code here...
-//  }
-// };
+const containsAnd = (arr) => {
+  return arr.filter(item => item.includes('and'));
+  // Solution code here...
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -70,6 +68,7 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 
 const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
+  return arr.filter(item => !forbiddenValues.includes(item));
 };
 
 /* ------------------------------------------------------------------------------------------------
