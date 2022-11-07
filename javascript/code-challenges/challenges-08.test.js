@@ -65,9 +65,8 @@ Write a function named containsW that takes in a string. This function should us
 
 const containsW = (str) => {
   // Solution code here...
-  // let regex = /w/gm;
-  // regex.test(str);
-  return str.test(/w/gm);
+  let regex = /w/;
+  return regex.test(str);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -84,6 +83,8 @@ For example:
 
 const isNum = (input) => {
   // Solution code here...
+  let regex = /\d/;
+  return regex.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -95,6 +96,9 @@ Write a function named containsWorld that takes in a string or number of any len
 
 const containsWorld = (input) => {
   // Solution code here...
+  let regex = /world/;
+  return regex.test(input);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -124,9 +128,9 @@ const citiesAtoJ = (arr) => {
   arr.forEach(str=> {
     if(regex.test(str)){
       newArr.push();
-      return newArr;
     }
   });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------

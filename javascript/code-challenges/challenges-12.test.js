@@ -8,6 +8,8 @@ Write a function named replaceZeros that, given a string, uses Regex to replace 
 
 const replaceZeros = (string) => {
   // Solution code here...
+  let regex = /0/;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -20,6 +22,8 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 
 const validatePin = (pin) => {
   // Solution code here...
+  let regex = /^\d{4}$/;
+  return regex.test(pin);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -32,6 +36,8 @@ If the word is between 5 and 10 characters long, return true. Otherwise, return 
 
 const validateWord = (word) => {
   // Solution code here...
+  let regex = /^[a-zA-Z]{5,10}$/;
+  return regex.test(word);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -44,6 +50,8 @@ If it does, return true. If not, return false.
 
 const hasNumber = (string) => {
   // Solution code here...
+  let regex = /[a-zA-Z]+\d+/;
+  return regex.test(string);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -102,6 +110,8 @@ findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])
 
 const findTagNames = elements => {
   // Solution code here...
+  let regex = /<\/\d>/;
+  return regex.match(elements);
 };
 
 /* ------------------------------------------------------------------------------------------------

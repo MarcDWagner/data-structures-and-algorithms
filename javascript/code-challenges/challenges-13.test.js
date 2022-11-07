@@ -20,6 +20,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 
 const firstLetters = (arr) => {
   // Solution code here...
+  return arr.map(str => str[0]);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -32,9 +33,7 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 
 const findHappiness = (arr) => {
   // Solution code here...
-  let newArr = [];
-  arr.flat(item => newArr.push(arr.includes(item + ':)')));
-  return newArr;
+  return arr.reduce((acc, curVal) => curVal.includes(':)') ? acc.concat(curVal) : acc, []);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -47,6 +46,8 @@ For example, (123) 456-7890 returns 1234567890
 
 const standardizePhoneNumbers = (arr) => {
   // Solution code here...
+  let regex = /(\d)/g;
+  return arr.map(number => number.match(regex).join(''));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -59,6 +60,13 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
+  let retOdd = '';
+  for(let i =0; i < str.length; i++) {
+    if(i % 2 !== 0) {
+      retOdd += str.charAt(i);
+    }
+  }
+  return retOdd;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -69,6 +77,7 @@ Write a function named allHappy that takes in an array of strings and returns a 
 
 const allHappy = (arr) => {
   // Solution code here...
+  return arr.every(str => str.includes(':)'));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -89,6 +98,7 @@ Write a function named findEvery that takes in an array of strings, along with a
 
 const findEvery = (arr, target) => {
   // Solution code here...
+  return arr.every(arr => arr.includes(target));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -227,7 +237,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should determine whether all the strings contain a given string', () => {
     const words = ['things', 'apple pie (:)', ':)banana pie', 'missing that thing', 'cant:)aloupe is tasty'];
 

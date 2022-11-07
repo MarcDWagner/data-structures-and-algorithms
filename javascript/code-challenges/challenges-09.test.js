@@ -21,7 +21,8 @@ Write a function named getCourseKeys that takes in the courseInfo object and ret
 
 For example: (['name', 'duration', 'topics', 'finalExam']).
 ------------------------------------------------------------------------------------------------ */
-const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks'},
+const courseInfo = {
+  name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks' },
   topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
   finalExam: true
 };
@@ -41,6 +42,11 @@ Write a function named checkValues that takes in an object and a value and retur
 
 const checkValues = (obj, value) => {
   // Solution code here...
+  for (let item in obj) {
+    if (obj[item] === value) {
+      return true;
+    } else return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -64,7 +70,11 @@ HR has asked you to change the data to make it easier to print so that it looks 
 
 const updateNumbers = (obj) => {
   // Solution code here...
-
+  let newArr = [];
+  for (let item in obj) {
+    newArr.push(`${item}: ${obj[item]}`);
+  }
+  return newArr;
 };
 
 
@@ -150,9 +160,9 @@ const hasChildrenValues = (arr, character) => {
   // second obj.keys = [Jon, null, [], house]
   let numOfChildren = 0;
   arr.forEach(person => {
-    if(person.name === character) {
+    if (person.name === character) {
       Object.keys(person).forEach((key, idx) => {
-        if(key === 'children') {
+        if (key === 'children') {
           numOfChildren = Object.values(person)[idx].length;
         }
       });
