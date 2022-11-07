@@ -9,7 +9,9 @@ Write a function named returnTen, takes in a string and uses split and splice to
 
 function returnTen(str) {
   // Solution code here...
+  return str.split('').splice(-10);
 }
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -27,7 +29,7 @@ return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
   // Solution code here...
-
+  return matrix.flat().reduce((acc, curVal) => acc < curVal ? curVal : acc, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -89,6 +91,11 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 
 const salesData = (hours, data) => {
   // Solution code here...
+  let newArr = [];
+  hours.forEach((item, i) => {
+    newArr.push({sales:`${data[i]} cookies` ,time: item});
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -116,10 +123,9 @@ const howManyTreats = (arr) => {
   // Solution code here...
   let treats = 0;
   arr.forEach(obj => {
-    let itemsArr = obj.items;
-    itemsArr.forEach(itemObj => {
-      if (itemObj.name === 'Treats') {
-        treats = itemObj.quanity;
+    obj.items.forEach(item => {
+      if(item.name === 'Treats') {
+        treats =+ item.quantity;
       }
     });
   });
