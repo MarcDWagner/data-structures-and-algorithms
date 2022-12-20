@@ -3,7 +3,8 @@
 To add a value to the middle of a list
 
 ## Whiteboard Process
-<!-- Embedded whiteboard image -->
+![code challenge 2 whiteboard](https://user-images.githubusercontent.com/110312640/208784729-66c77374-f6be-4dd7-a190-216dc53a470f.jpg)
+
 
 ## Approach & Efficiency
 <!-- What approach did you take? Discuss Why. What is the Big O space/time for this approach? -->
