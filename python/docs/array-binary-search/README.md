@@ -3,7 +3,8 @@
 Given a sorted list, use binary search to return the index of a given value, if the value is not present in the list return -1
 
 ## Whiteboard Process
-<!-- Embedded whiteboard image -->
+
+![code challenge 3 whiteboard](https://user-images.githubusercontent.com/110312640/209140672-bbd389b4-0c3b-4a31-bb17-78893b647a02.jpg)
 
 ## Approach & Efficiency
 <!-- What approach did you take? Discuss Why. What is the Big O space/time for this approach? -->
