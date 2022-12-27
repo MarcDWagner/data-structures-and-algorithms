@@ -1,17 +1,20 @@
-class LinkedList:
-    def __init__(self):
-        self.head = None
-
-
 class Node:
     def __init__(self, value):
         self.value = value
         self.next = None
 
+    def __str__(self):
+        return f"{self.value}"
 
-first_node = Node("A")
-second_node = Node("B")
-third_node = Node("C")
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+
+first_node = Node("a")
+second_node = Node("b")
+third_node = Node("c")
 
 link_list = LinkedList()
 
