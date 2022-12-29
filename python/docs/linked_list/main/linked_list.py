@@ -16,8 +16,14 @@ class LinkedList:
                 current = current.next
         return value_create()
 
+# insert a new node at the beginning of the linked list
     def insert(self, value):
         self.head = Node(value, self.head)
+        # Written step by step:
+        # node_to_insert = Node(value)
+        # old_head = self.head
+        # self.head = node_to_insert
+        # self.head.next = old_head
 
     def includes(self, value):
         current = self.head

@@ -31,15 +31,15 @@ def test_includes():
     assert not linked_list.includes("cucumber")
 
 
-# def test_append():
-#     linked_list = LinkedList()
-#     linked_list.insert("apple")
-#     linked_list.insert("banana")
-#     linked_list.append("cucumber")
-#
-#     assert (
-#         str(linked_list) == "{ banana } -> { apple } -> { cucumber } -> NULL"
-#     )
+def test_append():
+    linked_list = LinkedList()
+    linked_list.insert("apple")
+    linked_list.insert("banana")
+    linked_list.append("cucumber")
+
+    assert (
+        str(linked_list) == "{ banana } -> { apple } -> { cucumber } -> NULL"
+    )
 #
 #
 # def test_insert_before():
