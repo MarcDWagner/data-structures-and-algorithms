@@ -1,6 +1,17 @@
 import pytest
-from main.main import LinkedList
+from main.linked_list import LinkedList
 # TargetError
+
+
+def test_empty_head():
+    linked_list = LinkedList()
+    assert linked_list.head is None
+
+
+def test_populate_head():
+    linked_list = LinkedList()
+    linked_list.insert("apple")
+    assert linked_list.head.value == "apple"
 
 
 def test_insert():
@@ -10,16 +21,16 @@ def test_insert():
     assert str(linked_list) == "{ apple } -> NULL"
     linked_list.insert("banana")
     assert str(linked_list) == "{ banana } -> { apple } -> NULL"
-#
-#
-# def test_includes():
-#     linked_list = LinkedList()
-#     linked_list.insert("apple")
-#     linked_list.insert("banana")
-#     assert linked_list.includes("apple")
-#     assert not linked_list.includes("cucumber")
-#
-#
+
+
+def test_includes():
+    linked_list = LinkedList()
+    linked_list.insert("apple")
+    linked_list.insert("banana")
+    assert linked_list.includes("apple")
+    assert not linked_list.includes("cucumber")
+
+
 # def test_append():
 #     linked_list = LinkedList()
 #     linked_list.insert("apple")
