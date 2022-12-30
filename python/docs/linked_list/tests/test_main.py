@@ -1,6 +1,5 @@
 import pytest
-from main.linked_list import LinkedList
-# TargetError
+from main.linked_list import LinkedList, TargetError
 
 
 def test_empty_head():
@@ -31,61 +30,71 @@ def test_includes():
     assert not linked_list.includes("cucumber")
 
 
-# def test_append():
-#     linked_list = LinkedList()
-#     linked_list.insert("apple")
-#     linked_list.insert("banana")
-#     linked_list.append("cucumber")
-#
-#     assert (
-#         str(linked_list) == "{ banana } -> { apple } -> { cucumber } -> NULL"
-#     )
-#
-#
-# def test_insert_before():
-#     linked_list = LinkedList()
-#     linked_list.insert("apple")
-#     linked_list.insert("banana")
-#     linked_list.insert_before("apple", "cucumber")
-#     assert (
-#         str(linked_list) == "{ banana } -> { cucumber } -> { apple } -> NULL"
-#     )
-#
-#
-# def test_insert_after():
-#     linked_list = LinkedList()
-#     linked_list.insert("apple")
-#     linked_list.insert("banana")
-#     linked_list.insert_after("banana", "cucumber")
-#     assert (
-#         str(linked_list) == "{ banana } -> { cucumber } -> { apple } -> NULL"
-#     )
-#
-#
-# def test_insert_before_empty():
-#     linked_list = LinkedList()
-#     with pytest.raises(TargetError):
-#         linked_list.insert_before("radish", "zucchinni")
-#
-#
-# def test_insert_before_missing():
-#     linked_list = LinkedList()
-#     linked_list.insert("banana")
-#     with pytest.raises(TargetError):
-#         linked_list.insert_before("radish", "zucchinni")
-#
-#
-# def test_insert_after_empty():
-#     linked_list = LinkedList()
-#     with pytest.raises(TargetError):
-#         linked_list.insert_after("radish", "zucchinni")
-#
-#
-# def test_insert_after_missing():
-#     linked_list = LinkedList()
-#     linked_list.insert("banana")
-#     with pytest.raises(TargetError):
-#         linked_list.insert_after("radish", "zucchinni")
+def test_append():
+    linked_list = LinkedList()
+    linked_list.insert("apple")
+    linked_list.insert("banana")
+    linked_list.append("cucumber")
+
+    assert (
+        str(linked_list) == "{ banana } -> { apple } -> { cucumber } -> NULL"
+    )
+
+
+def test_insert_before():
+    linked_list = LinkedList()
+    linked_list.insert("apple")
+    linked_list.insert("banana")
+    linked_list.insert_before("apple", "cucumber")
+    assert (
+        str(linked_list) == "{ banana } -> { cucumber } -> { apple } -> NULL"
+    )
+
+
+def test_insert_after():
+    linked_list = LinkedList()
+    linked_list.insert("apple")
+    linked_list.insert("banana")
+    linked_list.insert_after("banana", "cucumber")
+    assert (
+        str(linked_list) == "{ banana } -> { cucumber } -> { apple } -> NULL"
+    )
+
+
+def test_insert_after_end():
+    linked_list = LinkedList()
+    linked_list.insert("apple")
+    linked_list.insert("banana")
+    linked_list.insert_after("apple", "cucumber")
+    assert (
+        str(linked_list) == "{ banana } -> { apple } -> { cucumber } -> NULL"
+    )
+
+
+def test_insert_before_empty():
+    linked_list = LinkedList()
+    with pytest.raises(TargetError):
+        linked_list.insert_before("radish", "zucchinni")
+
+
+def test_insert_before_missing():
+    linked_list = LinkedList()
+    linked_list.insert("banana")
+    with pytest.raises(TargetError):
+        linked_list.insert_before("radish", "zucchinni")
+
+
+def test_insert_after_empty():
+    linked_list = LinkedList()
+    with pytest.raises(TargetError):
+        linked_list.insert_after("radish", "zucchinni")
+
+
+def test_insert_after_missing():
+    linked_list = LinkedList()
+    linked_list.insert("banana")
+    with pytest.raises(TargetError):
+        linked_list.insert_after("radish", "zucchinni")
 #
 #
 # # Where k is greater than the length of the linked list
