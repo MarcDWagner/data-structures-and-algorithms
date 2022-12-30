@@ -42,3 +42,40 @@ class LinkedList:
             current = current.next
         return output + "NULL"
 
+    def append(self, value):
+        node = Node(value)
+        if self.head is None:
+            self.head = node
+            return
+        current = self.head
+        while current.next:
+            current = current.next
+
+        current.next = node
+
+    def insert_before(self, value, new_value):
+        current = self.head
+        while current and current.next:
+            if current.next.value == value:
+                node = Node(new_value, current.next)
+                current.next = node
+                return
+
+            current = current.next
+
+        raise TargetError(f"{value} is not in the linked list.")
+
+    def insert_after(self, value, new_value):
+        current = self.head
+        while current:
+            if current.value == value:
+                node = Node(new_value, current.next)
+                current.next = node
+                return
+            current = current.next
+
+        raise TargetError(f"{value} is not in the linked list")
+
+
+class TargetError(ValueError):
+    pass
